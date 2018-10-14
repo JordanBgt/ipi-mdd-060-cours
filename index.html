@@ -1,0 +1,634 @@
+<!doctype html>
+
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>IPI - Modélisation de données</title>
+    
+    <meta name="description" content="" />
+    <meta name="author" content="Pierre-Julien VILLOUD" />
+
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <link href="css/idea.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+    
+</head>
+
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id="my-navbar">
+  <a class="navbar-brand" href="index.html">
+    <img src="img/ipi.jpg" width="30" height="30" alt=""> Cours MDD 060
+  </a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="nav nav-pills mr-auto">
+      
+    </ul>
+    <span class="navbar-text">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <!--a class="btn btn-primary" href="https://github.com/pjvilloud/ipi-java-350-delivery-ex" target="_blank"><i class="fa fa-icon fa-gamepad"></i></a-->
+            &nbsp;
+            <a class="btn btn-primary" href="mailto:pjvilloud@protonmail.com"><i class="fa fa-icon fa-envelope"></i></a>
+            &nbsp;
+            <a class="btn btn-primary" href="https://github.com/pjvilloud" target="_blank"><i class="fa fa-icon fa-github"></i></a>
+            &nbsp;
+            <a class="btn btn-primary" href="https://linkedin.com/pjvilloud" target="_blank"><i class="fa fa-icon fa-linkedin"></i></a>&nbsp;
+            <a class="btn btn-primary" href="#" id="numSlide">1</a>
+        </div>
+    </span>
+  </div>
+</nav>
+<div class="progress">
+  <div id="progress" class="progress-bar" style="width: 0%;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<div class="container-fluid" id="impress">
+
+    <div id="accueil" class="step slide" data-rel-x="0" data-y=0>
+        <div class="jumbotron jumbotron-fluid">
+          <div class="container text-center">
+            <h1 class="display-3">Bienvenue !</h1>
+            <p class="lead">
+                <h2>Pierre-Julien VILLOUD</h2>
+                <div class="big-top-margin">
+                    <img src="img/pjvilloud.jpg" class="img-bienvenue rounded mx-auto d-block" alt="Pierre-Julien VILLOUD">
+                </div>
+                <div class="big-top-margin">
+                    <h3><i class="fa fa-icon fa-envelope-square"></i>&nbsp;<a href="mailto:pjvilloud@protonmail.com">pjvilloud@protonmail.com</a></h3>
+                    <h3><i class="fa fa-icon fa-github-square"></i>&nbsp;<a href="https://github.com/pjvilloud" target="_blank">https://github.com/pjvilloud</a></h3>
+                    <h3><i class="fa fa-icon fa-linkedin-square"></i>&nbsp;<a href="https://linkedin.com/pjvilloud" target="_blank">https://linkedin.com/pjvilloud</a></h3>
+                    <h3><i class="fa fa-icon fa-globe"></i>&nbsp;<a href="http://pjvilloud.github.io" target="_blank">http://pjvilloud.github.io</a></h3>
+                </div>
+            </p>
+          </div>
+        </div>
+    </div>
+
+    <div id="introduction" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Introduction</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Une <strong>crise du logiciel</strong> est survenue dans les années 60-70
+            </div>
+          </div>
+          <div class="container-fluid small-font">
+            <div class="row">
+              <div class="col-sm-8">
+                <img src="img/balancoirelogiciel.jpg" alt="">
+              </div>
+              <div class="col-sm-4">
+                <ul class="list-group big-top-margin">
+                  <li class="list-group-item">Des délais de livraison non tenus</li>
+                  <li class="list-group-item">Des dépassements de 50% à 70% des coûts prévisionnels</li>
+                  <li class="list-group-item">Des anomalies techniques</li>
+                  <li class="list-group-item">Des décalages avec les besoins du client</li>
+                  <li class="list-group-item">Des difficultés à réaliser des évolutions</li>
+                  <li class="list-group-item">Des difficultés à réutiliser le logiciel dans d'autres contextes de développement</li>
+                  <li class="list-group-item">...</li>
+                </ul>
+              </div>
+            </div>      
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="introduction-genielogiciel" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Le génie logiciel</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Le <strong>génie logiciel</strong> a été introduit en tant que domaine de recherche fin 1968 afin d'adresser notamment la non fiabilité des logiciels et le dépassement quasi-systématique des délais.
+            </div>
+          </div>
+          <div class="container little-top-margin">
+            <ul class="list-group">
+                <li class="list-group-item">L'analyse du besoin</li>
+                <li class="list-group-item">Les spécifications</li>
+                <li class="list-group-item list-group-item-success">La modélisation</li>
+                <li class="list-group-item">Le développement</li>
+                <li class="list-group-item">Les tests</li>
+                <li class="list-group-item">La maintenance</li>
+            </ul>
+          </div>
+          <div class="container-fluid little-top-margin">
+            <div class="alert alert-primary small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Nous aborderons principalement <strong>la modélisation</strong> dans ce cours.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="introduction-constats" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Où en est-on ?</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;45 ans après le début des travaux de recherche, les problèmes ne sont toujours pas résolus...
+            </div>
+          </div>
+          <div class="container-fluid small-font text-left">
+            <div class="row">
+                <div class="col-6 text-center">
+                    <h3 class="display-4">1995</h3>
+                    <canvas id="chart1995" width="600" height="600"></canvas>
+                </div>
+                <div class="col-6 text-center">
+                    <h3 class="display-4">2015</h3>
+                    <canvas id="chart2015" width="600" height="600"></canvas>
+                </div>
+            </div>
+          </div>
+          <div class="container-fluid little-top-margin">
+            <div class="alert alert-primary small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Malgré une nette amélioration, les problèmes subsistent !
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="introduction-modelisation" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">La modélisation</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Que se cache derrière le terme de <strong>modélisation</strong> ?
+            </div>
+          </div>
+          <div class="container small-font text-left big-top-margin">
+            <ul class="list-group">
+                <li class="list-group-item">Un <strong>modèle</strong> permet de représenter de manière <em>simplifiée</em> des éléments du monde réel dans le but de pouvoir le décrire, le comprendre et le prévoir.</li>
+                <li class="list-group-item">La <strong>modélisation</strong> permet de s'assurer de la bonne compréhension d'un système et de supprimer tous les éléments superflus.</li>
+                <li class="list-group-item">La <strong>modélisation</strong> est orientée vers l'objectif du projet informatique (automatiser un ensemble d'actions, fiabiliser un processus...).</li>
+                <li class="list-group-item">Une bonne <strong>modélisation</strong> permet de développer un logiciel évolutif et maintenable.</li>
+                <li class="list-group-item">La <strong>modélisation</strong> ne permet pas juste de concevoir son modèle de base de données mais toute l'architecture du système !</li>
+            </ul>
+          </div>
+          <div class="container-fluid big-top-margin">
+            <div class="alert alert-primary small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Une bonne <strong>modélisation</strong> est donc essentielle pour ne pas basculer dans les travers classiques des projets informatiques.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modelisation" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">La modélisation orientée objet</h1>
+          <div class="container-fluid big-top-margin">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Il existe plusieurs méthodes de modélisation mais nous aborderons la plus commune, la <strong>modélisation orientée objet</strong> en s'inspirant fortement de la méthode Merise.
+            </div>
+          </div>
+          <h2 class="display-4 little-top-margin">Les étapes de la modélisation orientée objet</h2>
+          <div class="container little-top-margin">
+            <ul class="list-group">
+                <li class="list-group-item">Etablir les <strong>règles de gestion métiers</strong></li>
+                <li class="list-group-item">Définir le <strong>dictionnaire des données</strong></li>
+                <li class="list-group-item">Identifier les <strong>dépendances fonctionnelles</strong></li>
+            </ul>
+          </div>
+          <div class="container-fluid big-top-margin">
+            <div class="alert alert-primary small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Ces 3 étapes permettent ensuite de définir les <strong>entités</strong> de notre système et les <strong>relations</strong> entre ces dernières. De ces entités et associations découlent notre <strong>modèle conceptuel de données</strong> qui nous permettra de définir notre base de données.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modelisation-merise" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Merise</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Merise est une méthode française d'analyse et de conception de SI née dans les années 70 et qui a connu un fort succès en France et en Europe.
+            </div>
+          </div>
+          <div class="container small-font text-left little-top-margin">
+            <img src="img/MERISE.png" alt="">
+            <p>La méthode MERISE préconise d'analyser séparément données et traitements, à chaque niveau.</p>
+            <p><small>
+            Par Devaux Sullivan reproduit avec autorisation de l'auteur original — {{Source:    CIM, les nouvelles perspectives de la production, Jean-Baptiste Waldner, DUNOD, 1990, reproduit avec l'autorisation de l'auteur.}}, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=50882189">Lien</a></small>
+            </p>
+          </div>
+          <div class="container-fluid little-top-margin">
+            <div class="alert alert-primary small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Malgré son grand âge, cette méthode reste toujours adaptée pour les gros projets même s'il est recommandé de garder une certaine souplesse dans l'application de la méthode. 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modelisation-reglesgestion" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Les règles de gestion métier</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Cette étape consiste à recueillir le besoin des utilisateurs (ce qui est exprimé et ce qui ne l'est pas...) en le questionnant afin d'en extraire des <strong>règles de gestion métier</strong>.
+            </div>
+          </div>
+          <div class="container-fluid big-top-margin">
+            <p>Une règle de gestion est une déclaration de haut niveau exprimant une contrainte sur un système, que ce soit en terme de donnée ou de traitement.</p>
+            </div>
+            <div class="container small-font text-left big-top-margin">
+                <p>
+                    <em>Pour chaque véhicule, on doit connaître la marque, le modèle, la couleur, la finition, l'immatriculation, la date de mise en circulation, le kilométrage.</em>
+                </p>
+                <p>
+                    <em>Un client peut être propriétaire d'aucun, d'un ou de plusieurs véhicules.</em>
+                </p>
+                <p>
+                    <em>La vente d'un véhicule augmente le chiffre d'affaire du commercial du montant du véhicule.</em>
+                </p>
+          </div>
+          <div class="container-fluid big-top-margin">
+            <div class="alert alert-primary small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;La recherche et l'écriture explicite de ces règles permet de réduire le <strong>risque</strong> sur le projet.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modelisation-dictionnaire" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Dictionnaire de données</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Le <strong>dictionnaire de données</strong> permet de regrouper toutes les données qui seront manipulées dans le SI et d'en fixer les caractéristiques.
+            </div>
+          </div>
+          <div class="container-fluid small-font text-left big-top-margin">
+            <div class="row">
+                <div class="col-3">
+                    <ul class="list-group">
+                        <li class="list-group-item">Le code mnémonique</li>
+                        <li class="list-group-item">La désignation</li>
+                        <li class="list-group-item">Le type de donnée</li>
+                        <li class="list-group-item">La taille</li>
+                        <li class="list-group-item">D'autres informations...</li>
+                    </ul>
+                </div>
+                <div class="col-9">
+                    <ul class="list-group">
+                        <li class="list-group-item">numeroImmatriculation</li>
+                        <li class="list-group-item">Le numéro d'immatriculation d'un véhicule permet d'identifier ce véhicule et de le rattacher à son propriétaire</li>
+                        <li class="list-group-item">Alphanumérique avec le format : AA-NNN-AA (par exemple AB-123-CD)</li>
+                        <li class="list-group-item">9 caractères</li>
+                        <li class="list-group-item">Un véhicule neuf n'ayant jamais eu de propriétaire n'a pas de numéro d'immatriculation</li>
+                    </ul>
+                </div>
+            </div>
+          </div>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font big-top-margin" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Ces données doivent être <strong>atomiques</strong> et ne <strong>résultant pas d'un calcul</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modelisation-dependances" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Dépendances fonctionnelles</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Si une donnée <code>d1</code> permet de connaître la valeur d'une autre donnée <code>d2</code>, on dit que ces deux données sont reliées par une <strong>dépendance fonctionnelle</strong> que l'on pourra noter <code>d1 → d2</code>. A noter que plusieurs données peuvent permettre de connaître la valeur d'une autre <code>d1,d2 → d3</code> ou à l'inverse plusieurs données peuvent être connues à partir d'un seul donnée <code>d1 → d2,d3</code>
+            </div>
+          </div>
+          <div class="container-fluid small-font big-top-margin">
+            <ul class="list-group">
+                <li class="list-group-item"><code>idVehicule → marqueVehicule, modeleVehicule, couleurVehicule</code></li>
+                <li class="list-group-item"><code>numeroImmatriculation → idVehicule</code></li>
+                <li class="list-group-item"><code>numeroImmatriculation → dateMiseCirculationVehicule, idProprietaire</code></li>
+                <li class="list-group-item"><code>numeroClient → nomClient, prenomClient, codePostalClient, villeClient, adresseClient</code></li>
+            </ul>
+          </div>
+          <div class="container-fluid big-top-margin">
+            <div class="alert alert-primary small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Une <strong>dépendance fonctionnelle</strong> doit être <strong>élémentaire</strong> (si <code>d1 → d3</code> alors <code>d1,d2 → d3</code> n'est pas élémentaire ) et <strong>directe</strong> (si <code>d1 → d2</code> et <code>d2 → d3</code> alors <code>d1 → d3</code> n'est pas directe).
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="mcd" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Modèle conceptuel de données</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Le <strong>modèle conceptuel de données</strong> ou <strong>MCD</strong> permet de représenter graphiquement les <strong>entités</strong> et les <strong>relations</strong> entre ces entités.
+            </div>
+          </div>
+          <div class="container small-font">
+            <img src="img/mcd.png" alt="">
+          </div>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Voyons d'abord comment identifier les <strong>entités</strong> et leurs <strong>relations</strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="mcd-entites" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Les entités</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Une <strong>entité</strong> ou <strong>objet</strong> ou <em><a href="https://pjvilloud.github.io/ipi-java-220-cours/index.html#/introduction-notions" target="_blank">classe</a></em> est un élément concret du monde réel qui est manipulé dans le SI et sur laquelle on peut définir des <strong>propriétés</strong> ou <strong>attributs</strong> atomiques.
+            </div>
+          </div>
+          <div class="container-fluid small-font text-left big-top-margin">
+            <div class="row">
+                <div class="col-5">
+                    <h3 class="display-4 text-center">Exemples d'entités</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>Véhicule</strong> : <code>idVehicule, marqueVehicule, modeleVehicule...</code></li>
+                        <li class="list-group-item"><strong>Client</strong> : <code>numeroClient, nomClient, prenomClient...</code></li>
+                        <li class="list-group-item"><strong>Entretien</strong> : <code>numeroEntretien, dateEntretien...</code></li>
+                        <li class="list-group-item"><strong>?</strong></code></li>
+                    </ul>
+                </div>
+                <div class="col-2">
+                    <h3 class="display-4 text-center">Entité</h3>
+                    <table class="table table-bordered">
+                        <tr class="text-center">
+                            <td><strong>Véhicule</strong></td>
+                        </tr>    
+                        <tr>
+                            <td>
+                                <u>idVehicule</u>  <br>
+                                marqueVehicule  <br>
+                                modeleVehicule  <br>
+                                couleurVehicule  <br>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-5 text-center">
+                    <h3 class="display-4">Table d'occurences</h3>
+                    <table class="table table-bordered">
+                        <tr class="text-center">
+                            <td><strong>idVehicule</strong></td>
+                            <td><strong>marqueVehicule</strong></td>
+                            <td><strong>modeleVehicule</strong></td>
+                            <td><strong>couleurVehicule</strong></td>
+                        </tr>    
+                        <tr>
+                            <td>123456</td>
+                            <td>Peugeot</td>
+                            <td>208</td>
+                            <td>Rouge</td>
+                        </tr>
+                        <tr>
+                            <td>123457</td>
+                            <td>Renault</td>
+                            <td>Mégane</td>
+                            <td>Bleu</td>
+                        </tr>
+                        <tr>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                            <td>...</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+          </div>
+          <div class="container-fluid big-top-margin">
+            <div class="alert alert-primary small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Parmi les propriétés d'une entité, on doit trouver un identifiant qui est dépendance fonctionnelle vers toutes les autres propriétés de l'entité. Ainsi, chaque <strong>occurrence</strong> ou <strong>instance</strong> de l'entité doit avoir une valeur unique pour cet identifiant.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="mcd-associations" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Les associations</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Une <strong>association</strong> ou <strong>relation</strong> permet de définir un lien entre un ou plusieurs entités. Cela permet de satisfaire des règles de gestion portant sur des entités différentes.
+            </div>
+          </div>
+          <div class="container-fluid small-font text-left big-top-margin">
+            <div class="row">
+                <div class="col-4">
+                    <table class="table table-bordered">
+                        <tr class="text-center">
+                            <td><strong>Véhicule</strong></td>
+                        </tr>    
+                        <tr>
+                            <td>
+                                <u>idVehicule</u>  <br>
+                                marqueVehicule  <br>
+                                modeleVehicule  <br>
+                                couleurVehicule  <br>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-4">
+                    <hr class="lien">
+                    <span class="card-left">0,1</span>
+                    <span class="card-right">0,n</span>
+                    <table class="table table-curved">
+                        <tr class="text-center">
+                            <td><strong>appartient à</strong></td>
+                        </tr>    
+                        <tr>
+                            <td>
+                                numeroImmatriculation <br>
+                                dateMiseCirculationVehicule
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-4">
+                    <table class="table table-bordered">
+                        <tr class="text-center">
+                            <td><strong>Client</strong></td>
+                        </tr>    
+                        <tr>
+                            <td>
+                                <u>numeroClient</u>  <br>
+                                nomClient  <br>
+                                prenomClient  <br>
+                                adresseClient  <br>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="container small-font">
+            <p>La relation <code>appartient à</code> entre <code>Véhicule</code> et <code>Client</code> traduit les deux règles de gestion suivantes : </p>
+                <p><em>Un véhicule appartient à 0 ou 1 client.</em></p>
+                <p><em>Un client possède 0 ou plusieurs véhicules.</em></p>
+          </div>
+          <div class="container-fluid big-top-margin">
+            <div class="alert alert-primary small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Les cardinalités, notées <code>X,Y</code> définissent le nombre d'occurences minimum <code>X</code> et maximum <code>Y</code> qui peuvent être liées. On doit donc les écrire pour les deux sens de la relation. A noter que le formalisme UML inverse la position des cardinalités...
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="sgbd" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">La base de données</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+            </div>
+          </div>
+          <div class="container small-font text-left">
+            <pre><code class="java"></code></pre>
+          </div>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="sgbd-mcd" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Passage du MCD au MLD</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+            </div>
+          </div>
+          <div class="container small-font text-left">
+            <pre><code class="java"></code></pre>
+          </div>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="sgbd-entites" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Conversion des entités</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+            </div>
+          </div>
+          <div class="container small-font text-left">
+            <pre><code class="java"></code></pre>
+          </div>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="sgbd-associations" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Conversion des associations</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+            </div>
+          </div>
+          <div class="container small-font text-left">
+            <pre><code class="java"></code></pre>
+          </div>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="sgbd-normalisation" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Normalisation</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+            </div>
+          </div>
+          <div class="container small-font text-left">
+            <pre><code class="java"></code></pre>
+          </div>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<script src="js/impress.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/highlight.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/chart.min.js"></script>
+<script src="js/script.js"></script>
+
