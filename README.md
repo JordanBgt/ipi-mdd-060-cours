@@ -1,2 +1,8 @@
 # ipi-mdd-060-cours
 Cours de modélisation de données pour l'IPI
+
+# TP
+On souhaite gérer de manière informatisée les employés de notre entreprise afin de notamment fiabiliser le processus de paye et réglementer un peu les augmentations de chaque employé. Il n'y a d'ailleurs que ces trois profils dans l'entreprise. On doit évidemment connaître les informations de nos employés, comme le nom, le prénom, le matricule, la date d'embauche, le salaire, le nombre d'années d'ancienneté, le nombre de congés ainsi que la prime annuelle. La performance de chaque commercial est surveillée. Les augmentations de salaire se font par pourcentage et l'augmentation d'un manager entraîne automatiquement la même augmentation sur les techniciens de son équipe. Enfin le nombre de congés est standard à 25 jours, sans RTT, enfin sauf pour les techniciens qui ont un jour de plus par année d'ancienneté.
+Pour le calcul des primes, c'est tout simple ! Nous avons une prime de base à 1009 € pour 2018 (et puis ce sera 1009.5 en 2019n 1010 € en 2020...) à laquelle tous nos salariés ont droit. Enfin sauf les commerciaux qui touchent une prime de 5% de leur chiffre d'affaire annuel (mais quand même avec un minimum de 500 €). Les techniciens touchent donc leur prime de base bonifiée par rapport à leur grade (+ 10% si leur grade est 1, 20% si c'est 2... jusqu'à 5) et ils touchent en plus une prime d'ancienneté de 100 € par année d'ancienneté. Et pour les managers, ils touchent la prime de base et 250 € par personne qu'il a dans son équipe.
+
+Répertorier les entités et les associations entre ces dernières et concevoir le MCD.

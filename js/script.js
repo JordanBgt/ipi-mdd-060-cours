@@ -7,7 +7,19 @@ $(document).ready(function() {
     });
   });
 
-  
+  $("#con-heritage").click(function(event) {
+    var text = $(event.target).html();
+    if(text === "&nbsp;&nbsp;T"){
+      $(event.target).html("&nbsp;&nbsp;X");
+      $("#heritage-type").html("Héritage par disjonction. Toutes les occurrences de l'entité mère ne peuvent se trouver que dans aucun ou une seule des entité filles existantes.");
+    } else if(text === "&nbsp;&nbsp;X"){
+      $(event.target).html("&nbsp;XT");
+      $("#heritage-type").html("Héritage par partition. Toutes les occurrences de l'entité mère se trouvent dans une seule des entité filles existantes.");
+    } else if(text === "&nbsp;XT"){
+      $(event.target).html("&nbsp;&nbsp;T");
+      $("#heritage-type").html("Héritage par couverture. Toutes les occurrences de l'entité mère se trouvent dans au moins une des entité filles existantes.");
+    }
+  });
   
 });
 var nbSlides = $(".step.slide").length;

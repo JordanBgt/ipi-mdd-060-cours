@@ -123,8 +123,8 @@
           </div>
           <div class="container little-top-margin">
             <ul class="list-group">
-                <li class="list-group-item">L'analyse du besoin</li>
-                <li class="list-group-item">Les spécifications</li>
+                <li class="list-group-item list-group-item-primary">L'analyse du besoin</li>
+                <li class="list-group-item list-group-item-primary">Les spécifications</li>
                 <li class="list-group-item list-group-item-success">La modélisation</li>
                 <li class="list-group-item">Le développement</li>
                 <li class="list-group-item">Les tests</li>
@@ -326,7 +326,7 @@
           <h1 class="display-3">Dépendances fonctionnelles</h1>
           <div class="container-fluid">
             <div class="alert alert-primary small-font" role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Si une donnée <code>d1</code> permet de connaître la valeur d'une autre donnée <code>d2</code>, on dit que ces deux données sont reliées par une <strong>dépendance fonctionnelle</strong> que l'on pourra noter <code>d1 → d2</code>. A noter que plusieurs données peuvent permettre de connaître la valeur d'une autre <code>d1,d2 → d3</code> ou à l'inverse plusieurs données peuvent être connues à partir d'un seul donnée <code>d1 → d2,d3</code>
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Si une donnée <code>d1</code> permet de connaître la valeur d'une autre donnée <code>d2</code>, on dit que ces deux données sont reliées par une <strong>dépendance fonctionnelle</strong> que l'on pourra noter <code>d1 → d2</code>. A noter que plusieurs données peuvent permettre de connaître la valeur d'une autre <code>d1,d2 → d3</code> ou à l'inverse plusieurs données peuvent être connues à partir d'une seul donnée <code>d1 → d2,d3</code>
             </div>
           </div>
           <div class="container-fluid small-font big-top-margin">
@@ -449,7 +449,7 @@
           <h1 class="display-3">Les associations</h1>
           <div class="container-fluid">
             <div class="alert alert-primary small-font" role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Une <strong>association</strong> ou <strong>relation</strong> permet de définir un lien entre un ou plusieurs entités. Cela permet de satisfaire des règles de gestion portant sur des entités différentes.
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Une <strong>association</strong> ou <strong>relation</strong> permet de définir un lien entre une ou plusieurs entités. Cela permet de satisfaire des règles de gestion portant sur des entités différentes. Voici un exemple de relation <strong>d'aggrégation</strong>.
             </div>
           </div>
           <div class="container-fluid small-font text-left big-top-margin">
@@ -503,7 +503,7 @@
             </div>
         </div>
         <div class="container small-font">
-            <p>La relation <code>appartient à</code> entre <code>Véhicule</code> et <code>Client</code> traduit les deux règles de gestion suivantes : </p>
+            <p>La relation <strong>d'aggrégation</strong> <code>appartient à</code> entre <code>Véhicule</code> et <code>Client</code> traduit les deux règles de gestion suivantes : </p>
                 <p><em>Un véhicule appartient à 0 ou 1 client.</em></p>
                 <p><em>Un client possède 0 ou plusieurs véhicules.</em></p>
           </div>
@@ -516,84 +516,152 @@
       </div>
     </div>
 
+    <div id="mcd-heritage" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Héritage</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Il existe un autre type de relation que l'on représente différement, les relations <strong>d'héritage</strong>. On dit qu'une entité B <strong>hérite</strong> d'une entité A si B possède les mêmes attributs de A et d'autres en plus.
+            </div>
+          </div>
+          <div class="container small-font text-left big-top-margin">
+            <div class="row">
+                <div class="col-5">
+                    <table class="table table-bordered">
+                        <tr class="text-center">
+                            <td><strong>Client</strong></td>
+                        </tr>    
+                        <tr>
+                            <td>
+                                <u>numeroClient</u>  <br>
+                                nomClient  <br>
+                                prenomClient  <br>
+                                adresseClient  <br>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-2">
+                    <i class="fa fa-icon fa-caret-left fa-2x heritage"></i><hr class="lien2">
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Est un</p>
+                </div>
+                <div class="col-5">
+                    <table class="table table-bordered">
+                        <tr class="text-center">
+                            <td><strong>ClientProfessionnel</strong></td>
+                        </tr>    
+                        <tr>
+                            <td>
+                                numeroSiret  <br>
+                                raisonSociale  <br>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+          <div class="container-fluid big-top-margin">
+            <div class="alert alert-primary small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;On utilise aussi le terme de <strong>généralisation</strong> avec un sur-type (ou entité mère, ici <code>Client</code>) et de
+<strong>spécialisation</strong> avec des sous-types (entités filles, ici <code>ClientProfessionnel</code>).
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="mcd-contraintesheritage" class="step slide">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center">
+          <h1 class="display-3">Les contraintes d'héritage</h1>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Lorsqu'il y a plusieurs entités qui héritent d'une autre entité, on peut préciser des <strong>contraintes d'héritage</strong>.
+            </div>
+          </div>
+          <div class="container small-font text-left big-top-margin">
+            <div class="row">
+                <div class="col-5">
+                    <table class="table table-bordered">
+                        <tr class="text-center">
+                            <td><strong>Client</strong></td>
+                        </tr>    
+                        <tr>
+                            <td>
+                                <u>numeroClient</u>  <br>
+                                nomClient  <br>
+                                prenomClient  <br>
+                                adresseClient  <br>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col-2">
+                    <i class="fa fa-icon fa-caret-left fa-2x heritage2"></i><hr class="lien3"> <i class="fa fa-icon fa-caret-left fa-2x heritage3"></i><hr class="lien4">
+                    <div class="con-heritage"><span id="con-heritage">&nbsp;&nbsp;T</span></div>
+                    <hr class="lien5">
+                </div>
+                <div class="col-5">
+                    <table class="table table-bordered">
+                        <tr class="text-center">
+                            <td><strong>ClientProfessionnel</strong></td>
+                        </tr>    
+                        <tr>
+                            <td>
+                                numeroSiret  <br>
+                                raisonSociale  <br>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="table table-bordered">
+                        <tr class="text-center">
+                            <td><strong>ClientParticulier</strong></td>
+                        </tr>    
+                        <tr>
+                            <td>
+                                numeroCarteFidelite<br>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+          <div class="container-fluid">
+            <div class="alert alert-primary small-font " role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;<span id="heritage-type">Héritage par couverture. Toutes les occurrences de l'entité mère se trouvent dans au moins une des entité filles existantes.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div id="sgbd" class="step slide">
       <div class="jumbotron jumbotron-fluid">
         <div class="container-fluid text-center">
           <h1 class="display-3">La base de données</h1>
           <div class="container-fluid">
             <div class="alert alert-primary small-font" role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Une fois la modélisation terminée, on peut appliquer des <strong>règles de conversion</strong> pour passer du MCD à un vrai schéma de base de données relationnelle.
             </div>
           </div>
           <div class="container small-font text-left">
-            <pre><code class="java"></code></pre>
+            <ul class="list-group">
+                <li class="list-group-item">Sauf exception, toute entité du MCD devient une table dont la clé est l'identifiant de cette entité. Chaque propriété de l'entité devient également un attribut de la table correspondante.</li>
+                <li class="list-group-item">Lorsqu'une entité a des relations d'aggrégation de cardinalités <code>0/1,n</code> de chaque côté, on a alors une <strong>relation associative</strong> et la clé primaire est constituée des identifiants des entités reliées.</li>
+                <li class="list-group-item">Lorsqu'une entité a une relation d'aggrégation de cardinalité <code>0/1,1</code>, on ajoute une clé étrangère dans la table qui correspond à l'entité se situant du côté de cette cardinalité <code>1,1</code> qui fera donc référence à la clé de la table correspondant à la seconde entité reliée par l'association.
+                <ul class="list-group">
+                    <li class="list-group-item">L'association ne peut pas contenir d'attributs car ils seraient en dépendances fonctionnelles directes avec l'identifiant de l'entité concernée par la clé étrangère.</li>
+                    <li class="list-group-item">L'association doit être binaire (c'est-à-dire relier uniquement deux entités et pas plus).</li>
+                </ul>
+                </li>
+                <li class="list-group-item">Lorsque deux entités sont toutes deux reliées avec une cardinalité <code>1,1</code> par une même association, on peut placer laclé étrangère de n'importe quel côté. Par convention, on choisit de la placer du côté de la relation correspondant à l'entité ayant le plus de liaisons avec les autres.</li>
+                </li>
+            </ul>
           </div>
           <div class="container-fluid">
-            <div class="alert alert-primary small-font " role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="sgbd-mcd" class="step slide">
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container-fluid text-center">
-          <h1 class="display-3">Passage du MCD au MLD</h1>
-          <div class="container-fluid">
-            <div class="alert alert-primary small-font" role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;
-            </div>
-          </div>
-          <div class="container small-font text-left">
-            <pre><code class="java"></code></pre>
-          </div>
-          <div class="container-fluid">
-            <div class="alert alert-primary small-font " role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="sgbd-entites" class="step slide">
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container-fluid text-center">
-          <h1 class="display-3">Conversion des entités</h1>
-          <div class="container-fluid">
-            <div class="alert alert-primary small-font" role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;
-            </div>
-          </div>
-          <div class="container small-font text-left">
-            <pre><code class="java"></code></pre>
-          </div>
-          <div class="container-fluid">
-            <div class="alert alert-primary small-font " role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="sgbd-associations" class="step slide">
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container-fluid text-center">
-          <h1 class="display-3">Conversion des associations</h1>
-          <div class="container-fluid">
-            <div class="alert alert-primary small-font" role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;
-            </div>
-          </div>
-          <div class="container small-font text-left">
-            <pre><code class="java"></code></pre>
-          </div>
-          <div class="container-fluid">
-            <div class="alert alert-primary small-font " role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+            <div class="alert alert-primary small-font little-top-margin" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Ces règles permettent d'avoir un schéma <strong>normalisé</strong>. Néanmoins, il faut savoir garder son esprit critique et on pourra éventuellement contourner ses règles pour des raisons de simplification.
             </div>
           </div>
         </div>
@@ -606,15 +674,19 @@
           <h1 class="display-3">Normalisation</h1>
           <div class="container-fluid">
             <div class="alert alert-primary small-font" role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Il existe beaucoup de niveau de normalisation, appelées aussi <strong>formes normales</strong>. On se concentrera sur les trois premiers niveaux.
             </div>
           </div>
-          <div class="container small-font text-left">
-            <pre><code class="java"></code></pre>
+          <div class="container small-font text-left big-top-margin">
+            <ul class="list-group">
+                <li class="list-group-item">Pour être en première forme normale (1FN ou 1NF) : Les attributs d'une relation doivent être atomiques et doivent être en dépendance fonctionnelle avec la clef primaire de cette dernière.</li>
+<li class="list-group-item">Pour être en deuxième forme normale (2FN ou 2NF) : Il faut être en 1FN et que toutes les dépendances fonctionnelles entre la clef primaire et les autres attributs de la relation soient élémentaires. Autrement dit, les attributs doivent dépendre de la totalité de la clef.</li>
+<li class="list-group-item">Pour être en troisième forme normale (3FN ou 3NF) : Il faut être en 2FN et que toutes les dépendances fonctionnelles entre la clef primaire de la relation et les autres attributs soient directes.</li>
+            </ul>
           </div>
           <div class="container-fluid">
-            <div class="alert alert-primary small-font " role="alert">
-                <i class="fa fa-icon fa-info-circle"></i>&nbsp;
+            <div class="alert alert-primary small-font big-top-margin" role="alert">
+                <i class="fa fa-icon fa-info-circle"></i>&nbsp;Encore une fois, ces règles doivent vous guider dans la conception de votre modèle mais il ne faut pas non plus être rigide...
             </div>
           </div>
         </div>
